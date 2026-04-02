@@ -13,7 +13,7 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #e7df8f;
+      background: #ffffff;
       color: #111;
     }
 
@@ -25,20 +25,32 @@
 
     .hero {
       text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
+    }
+
+    .profile-frame {
+      width: 230px;
+      height: 230px;
+      margin: 0 auto 14px;
+      border: 4px solid #000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #fff;
     }
 
     .profile-img {
-      width: 320px;
-      max-width: 82vw;
+      width: 52%;
       height: auto;
       display: block;
-      margin: 0 auto 10px;
+      object-fit: contain;
     }
 
     h1 {
       margin: 0;
-      font-size: 2.2rem;
+      font-size: 2.1rem;
       color: #111;
       letter-spacing: 0.3px;
     }
@@ -46,13 +58,21 @@
     .subtitle {
       margin: 8px auto 0;
       max-width: 640px;
-      font-size: 1.02rem;
+      font-size: 1rem;
       line-height: 1.5;
       color: rgba(17,17,17,0.78);
     }
 
+    .handle {
+      margin-top: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #111;
+      letter-spacing: 0.3px;
+    }
+
     .links {
-      margin-top: 26px;
+      margin-top: 28px;
     }
 
     .link-card {
@@ -60,20 +80,24 @@
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      background: #0a0a0d;
+      background: #050505;
       color: #fff;
       text-decoration: none;
       border-radius: 28px;
       padding: 18px 22px;
       margin: 18px 0;
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(0, 255, 220, 0.12);
       box-shadow: 0 0 0 1px rgba(255,255,255,0.03) inset;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
     .link-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+      border-color: rgba(0, 255, 200, 0.9);
+      box-shadow:
+        0 0 14px rgba(0, 255, 200, 0.35),
+        0 0 28px rgba(0, 255, 200, 0.18),
+        inset 0 0 18px rgba(0, 255, 200, 0.08);
     }
 
     .left {
@@ -91,14 +115,29 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.07);
-      color: #f3f3f3;
+      background:
+        radial-gradient(circle at center, rgba(0,255,220,0.12) 0%, rgba(0,255,220,0.04) 45%, rgba(255,255,255,0.01) 70%),
+        #0a0a0d;
+      border: 1px solid rgba(0,255,220,0.28);
+      color: #2ff7e8;
+      box-shadow:
+        0 0 10px rgba(0,255,220,0.12),
+        inset 0 0 12px rgba(0,255,220,0.08);
+      transition: box-shadow 0.25s ease, transform 0.25s ease, color 0.25s ease;
+    }
+
+    .link-card:hover .icon-box {
+      color: #7bfff2;
+      box-shadow:
+        0 0 16px rgba(0,255,220,0.35),
+        0 0 28px rgba(0,255,220,0.14),
+        inset 0 0 18px rgba(0,255,220,0.12);
+      transform: scale(1.04);
     }
 
     .icon-box svg {
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       stroke: currentColor;
     }
 
@@ -117,14 +156,20 @@
 
     .desc {
       font-size: 0.88rem;
-      color: rgba(255,255,255,0.34);
+      color: rgba(255,255,255,0.42);
       margin-top: 5px;
       line-height: 1.35;
     }
 
     .arrow {
-      color: rgba(255,255,255,0.28);
+      color: rgba(47,247,232,0.55);
       min-width: 28px;
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .link-card:hover .arrow {
+      color: #7bfff2;
+      transform: translateX(3px);
     }
 
     .arrow svg {
@@ -135,7 +180,7 @@
 
     .footer {
       text-align: center;
-      margin-top: 34px;
+      margin-top: 36px;
       font-size: 0.95rem;
       color: rgba(17,17,17,0.72);
       letter-spacing: 0.4px;
@@ -146,8 +191,13 @@
         padding: 18px 14px 40px;
       }
 
+      .profile-frame {
+        width: 180px;
+        height: 180px;
+      }
+
       .profile-img {
-        width: 255px;
+        width: 50%;
       }
 
       h1 {
@@ -167,8 +217,8 @@
       }
 
       .icon-box svg {
-        width: 28px;
-        height: 28px;
+        width: 30px;
+        height: 30px;
       }
 
       .title {
@@ -184,11 +234,14 @@
 <body>
   <div class="container">
     <section class="hero">
-      <img src="perfil-acordeon.png" alt="Wiktor Figueroa con acordeón" class="profile-img" />
+      <div class="profile-frame">
+        <img src="perfil-acordeon.png" alt="Wiktor Figueroa con acordeón" class="profile-img" />
+      </div>
       <h1>Wiktor Figueroa</h1>
       <p class="subtitle">
         Arte, territorio, conciencia y tecnologías al servicio de la comunidad.
       </p>
+      <div class="handle">@akordeonka</div>
     </section>
 
     <section class="links">
@@ -196,10 +249,11 @@
       <a class="link-card" href="https://kadakan.com" target="_blank">
         <div class="left">
           <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18V5l10-2v13"></path>
-              <circle cx="6" cy="18" r="3"></circle>
-              <circle cx="16" cy="16" r="3"></circle>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="7.5"></circle>
+              <circle cx="12" cy="12" r="2.2"></circle>
+              <path d="M12 2.8v2.3M12 18.9v2.3M21.2 12h-2.3M5.1 12H2.8"></path>
+              <path d="M18.5 5.5 17 7M7 17l-1.5 1.5M18.5 18.5 17 17M7 7 5.5 5.5"></path>
             </svg>
           </div>
           <div class="text-group">
@@ -218,10 +272,10 @@
       <a class="link-card" href="https://kadakan.com" target="_blank">
         <div class="left">
           <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3c2.5 3 4 5.3 4 8a4 4 0 1 1-8 0c0-2.7 1.5-5 4-8Z"></path>
-              <path d="M12 21v-5"></path>
-              <path d="M8.5 13.5c1 .8 2.2 1.2 3.5 1.2s2.5-.4 3.5-1.2"></path>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="8"></circle>
+              <path d="M12 4.5c2.8 2.4 4.3 4.8 4.3 7.1A4.3 4.3 0 1 1 7.7 11.6c0-2.3 1.5-4.7 4.3-7.1Z"></path>
+              <path d="M8.8 15.3c1 .8 2 .9 3.2.9s2.2-.1 3.2-.9"></path>
             </svg>
           </div>
           <div class="text-group">
@@ -240,11 +294,12 @@
       <a class="link-card" href="https://tecolotedelasierra.com" target="_blank">
         <div class="left">
           <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-              <path d="M6.5 2H20v15H6.5A2.5 2.5 0 0 0 4 19.5V4.5A2.5 2.5 0 0 1 6.5 2Z"></path>
-              <path d="M8 6h8"></path>
-              <path d="M8 10h8"></path>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="8"></circle>
+              <path d="M8 8.5h8"></path>
+              <path d="M8 12h8"></path>
+              <path d="M8 15.5h5"></path>
+              <path d="M6.5 6.5 17.5 17.5"></path>
             </svg>
           </div>
           <div class="text-group">
@@ -263,10 +318,11 @@
       <a class="link-card" href="https://barrancadejalpa.com" target="_blank">
         <div class="left">
           <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M8 3h8"></path>
-              <path d="M10 3v5l-4.5 7.5A4 4 0 0 0 9 21h6a4 4 0 0 0 3.5-5.5L14 8V3"></path>
-              <path d="M9 14h6"></path>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="8"></circle>
+              <path d="M10 6.5h4"></path>
+              <path d="M10.5 6.5v4.3l-2.6 4.1A2.5 2.5 0 0 0 10 18.5h4a2.5 2.5 0 0 0 2.1-3.6l-2.6-4.1V6.5"></path>
+              <path d="M9.5 13.5h5"></path>
             </svg>
           </div>
           <div class="text-group">
@@ -285,10 +341,12 @@
       <a class="link-card" href="https://instagram.com/bosquecultural" target="_blank">
         <div class="left">
           <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 7l9-4 9 4-9 4-9-4Z"></path>
-              <path d="M21 7v10l-9 4-9-4V7"></path>
-              <path d="M12 11v10"></path>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="8"></circle>
+              <path d="M12 6v12"></path>
+              <path d="M6 12h12"></path>
+              <path d="M8.5 8.5 15.5 15.5"></path>
+              <path d="M15.5 8.5 8.5 15.5"></path>
             </svg>
           </div>
           <div class="text-group">
@@ -307,12 +365,12 @@
       <a class="link-card" href="https://www.instagram.com/kasadobe/" target="_blank">
         <div class="left">
           <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 10h18"></path>
-              <path d="M5 21V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v13"></path>
-              <path d="M8 3v3"></path>
-              <path d="M16 3v3"></path>
-              <path d="M8 14h8"></path>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="8"></circle>
+              <path d="M8 13h8"></path>
+              <path d="M9 10h6"></path>
+              <path d="M10 7.5h4"></path>
+              <path d="M7.5 16.5h9"></path>
             </svg>
           </div>
           <div class="text-group">
@@ -331,12 +389,11 @@
       <a class="link-card" href="#" target="_blank">
         <div class="left">
           <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2v6"></path>
-              <path d="M8 5h8"></path>
-              <path d="M5 11.5A6.5 6.5 0 0 1 11.5 5h1A6.5 6.5 0 0 1 19 11.5v1A6.5 6.5 0 0 1 12.5 19h-1A6.5 6.5 0 0 1 5 12.5v-1Z"></path>
-              <path d="M9 12h6"></path>
-              <path d="M12 9v6"></path>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="8"></circle>
+              <path d="M12 7v10"></path>
+              <path d="M7 12h10"></path>
+              <circle cx="12" cy="12" r="3"></circle>
             </svg>
           </div>
           <div class="text-group">
@@ -355,12 +412,11 @@
       <a class="link-card" href="https://monteraiz.com" target="_blank">
         <div class="left">
           <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22v-7"></path>
-              <path d="M7 10c0-3 2.2-5 5-5s5 2 5 5c0 2.7-2 4.7-5 5-3-.3-5-2.3-5-5Z"></path>
-              <path d="M12 15c-1.5-1.2-3.5-3.2-3.5-6"></path>
-              <path d="M12 15c1.5-1.2 3.5-3.2 3.5-6"></path>
-              <path d="M8 22h8"></path>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="8"></circle>
+              <path d="M12 6v12"></path>
+              <path d="M9 9c1 1 2 1.5 3 1.5S14 10 15 9"></path>
+              <path d="M9 15c1-1 2-1.5 3-1.5s2 .5 3 1.5"></path>
             </svg>
           </div>
           <div class="text-group">
@@ -379,36 +435,17 @@
       <a class="link-card" href="https://wa.me/523411701538" target="_blank">
         <div class="left">
           <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 11.5A8.5 8.5 0 0 1 7.4 19l-4.4 1 1.1-4.2A8.5 8.5 0 1 1 20 11.5Z"></path>
-              <path d="M8.8 9.8c.2-.6.5-.7.8-.7h.6c.2 0 .5 0 .7.6.2.5.8 1.8.9 1.9.1.1.1.3 0 .5-.1.2-.2.4-.4.6-.2.2-.3.4-.4.5-.2.2-.3.4-.1.7.2.4.9 1.4 1.9 2.2 1.3 1 2.3 1.3 2.7 1.5.4.1.6.1.8-.1.2-.2.8-.9 1-1.3.2-.4.5-.3.8-.2.3.1 1.8.9 2.1 1 .3.2.5.2.5.4s-.1 1-.7 1.6c-.6.6-1.4.9-2.3.9s-1.8-.3-3.1-.9c-1.2-.6-2.5-1.5-3.8-2.8-1-1-1.9-2.2-2.5-3.3-.6-1.2-.8-2.2-.8-3 0-.8.4-1.6.8-2Z"></path>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="8"></circle>
+              <path d="M9 10.5c.4 2 2 3.6 4 4"></path>
+              <path d="M10 8.5h.01"></path>
+              <path d="M14 14.5h.01"></path>
+              <path d="M8.5 16l1.2-2"></path>
             </svg>
           </div>
           <div class="text-group">
             <div class="title">Contacto directo</div>
             <div class="desc">WhatsApp para colaboraciones, contrataciones y proyectos.</div>
-          </div>
-        </div>
-        <div class="arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14"></path>
-            <path d="m13 6 6 6-6 6"></path>
-          </svg>
-        </div>
-      </a>
-
-      <a class="link-card" href="https://instagram.com/akordeonka" target="_blank">
-        <div class="left">
-          <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-              <circle cx="12" cy="12" r="4"></circle>
-              <path d="M17.5 6.5h.01"></path>
-            </svg>
-          </div>
-          <div class="text-group">
-            <div class="title">Instagram</div>
-            <div class="desc">@akordeonka</div>
           </div>
         </div>
         <div class="arrow">
