@@ -8,42 +8,34 @@
   <style>
     :root {
       --bg: #ffffff;
-      --text: #0f0f10;
+      --text: #111111;
       --panel: #050608;
-      --panel-2: #0a0c10;
-      --line: rgba(63, 255, 220, 0.22);
-      --glow: #36f7df;
-      --glow-2: #7dfff1;
-      --soft: rgba(15, 15, 16, 0.66);
-      --muted: rgba(255, 255, 255, 0.48);
+      --turq: #36f7df;
+      --turq-soft: #7dfff1;
+      --muted-dark: rgba(17,17,17,0.68);
+      --muted-light: rgba(255,255,255,0.62);
     }
 
     * {
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
-      background:
-        radial-gradient(circle at top center, rgba(54, 247, 223, 0.05), transparent 26%),
-        linear-gradient(to bottom, #ffffff, #fbfbfb);
+      background: #ffffff;
       color: var(--text);
       font-family: Arial, Helvetica, sans-serif;
     }
 
     .container {
-      width: min(940px, calc(100% - 28px));
+      max-width: 980px;
       margin: 0 auto;
-      padding: 26px 0 54px;
+      padding: 24px 16px 50px;
     }
 
     .hero {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
     }
 
     .profile-orbit {
@@ -54,31 +46,10 @@
       position: relative;
       display: grid;
       place-items: center;
-      background:
-        radial-gradient(circle at center, rgba(54,247,223,0.06), rgba(54,247,223,0.015) 46%, transparent 62%);
-      border: 3px solid #0a0a0a;
-      box-shadow:
-        0 0 0 8px rgba(0,0,0,0.02),
-        0 0 24px rgba(54,247,223,0.08);
+      background: #fff;
+      border: 3px solid #000;
+      box-shadow: 0 0 0 8px rgba(0,0,0,0.02);
       overflow: hidden;
-    }
-
-    .profile-orbit::before,
-    .profile-orbit::after {
-      content: "";
-      position: absolute;
-      inset: 10px;
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .profile-orbit::before {
-      border: 1px solid rgba(54, 247, 223, 0.18);
-    }
-
-    .profile-orbit::after {
-      inset: 18px;
-      border: 1px dashed rgba(54, 247, 223, 0.14);
     }
 
     .profile-img {
@@ -94,7 +65,7 @@
       margin: 0;
       font-size: 2rem;
       line-height: 1.1;
-      letter-spacing: 0.4px;
+      letter-spacing: 0.3px;
     }
 
     .subtitle {
@@ -102,137 +73,83 @@
       margin: 9px auto 0;
       font-size: 0.98rem;
       line-height: 1.5;
-      color: var(--soft);
+      color: var(--muted-dark);
     }
 
     .handle {
       margin-top: 12px;
       font-size: 0.98rem;
       font-weight: 700;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
       color: #111;
     }
 
     .links {
       margin-top: 26px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
     }
 
     .link-card {
-      position: relative;
+      width: min(760px, 92%);
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      width: 100%;
-      padding: 18px 22px;
-      margin: 18px 0;
-      background:
-        linear-gradient(180deg, var(--panel-2), var(--panel));
+      padding: 16px 20px;
+      background: var(--panel);
       color: #fff;
       text-decoration: none;
-      border-radius: 26px;
-      border: 1px solid rgba(255,255,255,0.06);
-      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid rgba(54, 247, 223, 0.16);
       transition:
-        transform 0.22s ease,
-        border-color 0.24s ease,
-        box-shadow 0.24s ease;
-    }
-
-    .link-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg, rgba(54,247,223,0.0), rgba(54,247,223,0.05), rgba(54,247,223,0.0));
-      opacity: 0;
-      transition: opacity 0.24s ease;
-      pointer-events: none;
-    }
-
-    .link-card::after {
-      content: "";
-      position: absolute;
-      left: 14px;
-      right: 14px;
-      bottom: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(54,247,223,0.35), transparent);
-      opacity: 0.4;
-      pointer-events: none;
+        background 0.22s ease,
+        color 0.22s ease,
+        transform 0.2s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease;
     }
 
     .link-card:hover {
+      background: var(--turq);
+      color: #000;
       transform: translateY(-2px);
-      border-color: rgba(54, 247, 223, 0.78);
-      box-shadow:
-        0 0 0 1px rgba(54,247,223,0.15) inset,
-        0 0 18px rgba(54,247,223,0.18),
-        0 0 34px rgba(54,247,223,0.08);
-    }
-
-    .link-card:hover::before {
-      opacity: 1;
+      border-color: var(--turq);
+      box-shadow: 0 0 20px rgba(54, 247, 223, 0.25);
     }
 
     .left {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 16px;
       min-width: 0;
-      position: relative;
-      z-index: 2;
+      flex: 1;
     }
 
     .icon-box {
-      width: 74px;
-      height: 74px;
-      min-width: 74px;
-      border-radius: 18px;
+      width: 54px;
+      height: 54px;
+      min-width: 54px;
+      border-radius: 14px;
       display: grid;
       place-items: center;
-      background:
-        radial-gradient(circle at center, rgba(54,247,223,0.14), rgba(54,247,223,0.03) 46%, transparent 72%),
-        #0b0d11;
-      border: 1px solid rgba(54,247,223,0.24);
-      box-shadow:
-        inset 0 0 18px rgba(54,247,223,0.06),
-        0 0 10px rgba(54,247,223,0.08);
-      color: var(--glow);
-      position: relative;
-      overflow: hidden;
+      background: rgba(54, 247, 223, 0.08);
+      border: 1px solid rgba(54, 247, 223, 0.28);
+      color: var(--turq);
+      font-size: 1.55rem;
+      font-weight: 700;
       transition:
-        transform 0.22s ease,
-        box-shadow 0.24s ease,
-        color 0.24s ease,
-        border-color 0.24s ease;
-    }
-
-    .icon-box::before {
-      content: "";
-      position: absolute;
-      inset: 9px;
-      border-radius: 14px;
-      border: 1px solid rgba(54,247,223,0.12);
-      pointer-events: none;
+        background 0.22s ease,
+        color 0.22s ease,
+        border-color 0.22s ease;
     }
 
     .link-card:hover .icon-box {
-      transform: scale(1.045);
-      color: var(--glow-2);
-      border-color: rgba(54,247,223,0.58);
-      box-shadow:
-        inset 0 0 22px rgba(54,247,223,0.10),
-        0 0 16px rgba(54,247,223,0.22),
-        0 0 28px rgba(54,247,223,0.10);
-    }
-
-    .icon-box svg {
-      width: 36px;
-      height: 36px;
-      stroke: currentColor;
-      position: relative;
-      z-index: 2;
+      background: rgba(0,0,0,0.08);
+      color: #000;
+      border-color: rgba(0,0,0,0.18);
     }
 
     .text-group {
@@ -245,36 +162,39 @@
       line-height: 1.24;
       color: #f7f7f7;
       letter-spacing: 0.2px;
+      transition: color 0.22s ease;
     }
 
     .desc {
-      margin-top: 5px;
+      margin-top: 4px;
       font-size: 0.87rem;
       line-height: 1.35;
-      color: var(--muted);
+      color: var(--muted-light);
+      transition: color 0.22s ease;
+    }
+
+    .link-card:hover .title,
+    .link-card:hover .desc {
+      color: #000;
     }
 
     .arrow {
-      min-width: 26px;
-      color: rgba(54,247,223,0.56);
-      position: relative;
-      z-index: 2;
-      transition: transform 0.22s ease, color 0.22s ease;
+      min-width: 24px;
+      color: var(--turq);
+      font-size: 1.3rem;
+      font-weight: 700;
+      transition:
+        color 0.22s ease,
+        transform 0.22s ease;
     }
 
     .link-card:hover .arrow {
+      color: #000;
       transform: translateX(4px);
-      color: var(--glow-2);
-    }
-
-    .arrow svg {
-      width: 24px;
-      height: 24px;
-      stroke: currentColor;
     }
 
     .footer {
-      margin-top: 38px;
+      margin-top: 36px;
       text-align: center;
       font-size: 0.92rem;
       letter-spacing: 0.35px;
@@ -283,8 +203,7 @@
 
     @media (max-width: 680px) {
       .container {
-        width: min(100% - 16px, 940px);
-        padding-top: 18px;
+        padding: 18px 10px 40px;
       }
 
       .profile-orbit {
@@ -297,37 +216,28 @@
       }
 
       h1 {
-        font-size: 1.72rem;
+        font-size: 1.7rem;
       }
 
       .link-card {
-        padding: 16px;
-        border-radius: 22px;
+        width: 96%;
+        padding: 14px 14px;
+        border-radius: 20px;
       }
 
       .icon-box {
-        width: 62px;
-        height: 62px;
-        min-width: 62px;
-        border-radius: 16px;
-      }
-
-      .icon-box::before {
-        inset: 8px;
-        border-radius: 12px;
-      }
-
-      .icon-box svg {
-        width: 30px;
-        height: 30px;
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        font-size: 1.3rem;
       }
 
       .title {
-        font-size: 0.97rem;
+        font-size: 0.96rem;
       }
 
       .desc {
-        font-size: 0.81rem;
+        font-size: 0.8rem;
       }
     }
   </style>
@@ -347,212 +257,101 @@
 
       <a class="link-card" href="https://kadakan.com" target="_blank">
         <div class="left">
-          <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="7.5"></circle>
-              <circle cx="12" cy="12" r="2.2"></circle>
-              <path d="M12 2.8v2.3M12 18.9v2.3M21.2 12h-2.3M5.1 12H2.8"></path>
-              <path d="M18.5 5.5 17 7M7 17l-1.5 1.5M18.5 18.5 17 17M7 7 5.5 5.5"></path>
-            </svg>
-          </div>
+          <div class="icon-box">🎭</div>
           <div class="text-group">
             <div class="title">Kadakan · Música & Artes Escénicas</div>
             <div class="desc">Acordeón, escena, performance y lenguaje artístico vivo.</div>
           </div>
         </div>
-        <div class="arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14"></path>
-            <path d="m13 6 6 6-6 6"></path>
-          </svg>
-        </div>
+        <div class="arrow">→</div>
       </a>
 
       <a class="link-card" href="https://kadakan.com" target="_blank">
         <div class="left">
-          <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="8"></circle>
-              <path d="M12 4.5c2.8 2.4 4.3 4.8 4.3 7.1A4.3 4.3 0 1 1 7.7 11.6c0-2.3 1.5-4.7 4.3-7.1Z"></path>
-              <path d="M8.8 15.3c1 .8 2 .9 3.2.9s2.2-.1 3.2-.9"></path>
-            </svg>
-          </div>
+          <div class="icon-box">🧘</div>
           <div class="text-group">
             <div class="title">Yoga · Astrología · Tonalamatl</div>
             <div class="desc">Prácticas de conciencia, sabiduría simbólica y trabajo interior.</div>
           </div>
         </div>
-        <div class="arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14"></path>
-            <path d="m13 6 6 6-6 6"></path>
-          </svg>
-        </div>
+        <div class="arrow">→</div>
       </a>
 
       <a class="link-card" href="https://tecolotedelasierra.com" target="_blank">
         <div class="left">
-          <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="8"></circle>
-              <path d="M8 8.5h8"></path>
-              <path d="M8 12h8"></path>
-              <path d="M8 15.5h5"></path>
-              <path d="M6.5 6.5 17.5 17.5"></path>
-            </svg>
-          </div>
+          <div class="icon-box">📰</div>
           <div class="text-group">
             <div class="title">El Tecolote · Podcast · Producción</div>
             <div class="desc">Revista, Substack, locución y contenido audiovisual territorial.</div>
           </div>
         </div>
-        <div class="arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14"></path>
-            <path d="m13 6 6 6-6 6"></path>
-          </svg>
-        </div>
+        <div class="arrow">→</div>
       </a>
 
       <a class="link-card" href="https://barrancadejalpa.com" target="_blank">
         <div class="left">
-          <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="8"></circle>
-              <path d="M10 6.5h4"></path>
-              <path d="M10.5 6.5v4.3l-2.6 4.1A2.5 2.5 0 0 0 10 18.5h4a2.5 2.5 0 0 0 2.1-3.6l-2.6-4.1V6.5"></path>
-              <path d="M9.5 13.5h5"></path>
-            </svg>
-          </div>
+          <div class="icon-box">🍷</div>
           <div class="text-group">
             <div class="title">Productos orgánicos</div>
             <div class="desc">Vino Barranca, pulque y propuestas de comida autónoma.</div>
           </div>
         </div>
-        <div class="arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14"></path>
-            <path d="m13 6 6 6-6 6"></path>
-          </svg>
-        </div>
+        <div class="arrow">→</div>
       </a>
 
       <a class="link-card" href="https://instagram.com/bosquecultural" target="_blank">
         <div class="left">
-          <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="8"></circle>
-              <path d="M12 6v12"></path>
-              <path d="M6 12h12"></path>
-              <path d="M8.5 8.5 15.5 15.5"></path>
-              <path d="M15.5 8.5 8.5 15.5"></path>
-            </svg>
-          </div>
+          <div class="icon-box">⛺</div>
           <div class="text-group">
             <div class="title">Yurtas móviles · Bosque Cultural</div>
             <div class="desc">Diseño, construcción y visión nómada para habitar con ligereza.</div>
           </div>
         </div>
-        <div class="arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14"></path>
-            <path d="m13 6 6 6-6 6"></path>
-          </svg>
-        </div>
+        <div class="arrow">→</div>
       </a>
 
       <a class="link-card" href="https://www.instagram.com/kasadobe/" target="_blank">
         <div class="left">
-          <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="8"></circle>
-              <path d="M8 13h8"></path>
-              <path d="M9 10h6"></path>
-              <path d="M10 7.5h4"></path>
-              <path d="M7.5 16.5h9"></path>
-            </svg>
-          </div>
+          <div class="icon-box">☕</div>
           <div class="text-group">
             <div class="title">Casa Adobe · Café Cultural</div>
             <div class="desc">Encuentro, café, arte y activación cultural desde el territorio.</div>
           </div>
         </div>
-        <div class="arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14"></path>
-            <path d="m13 6 6 6-6 6"></path>
-          </svg>
-        </div>
+        <div class="arrow">→</div>
       </a>
 
       <a class="link-card" href="#" target="_blank">
         <div class="left">
-          <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="8"></circle>
-              <path d="M12 7v10"></path>
-              <path d="M7 12h10"></path>
-              <circle cx="12" cy="12" r="3"></circle>
-            </svg>
-          </div>
+          <div class="icon-box">💻</div>
           <div class="text-group">
             <div class="title">Tekantli · Tecnologías para el desarrollo del alma</div>
             <div class="desc">Desarrollo de sitios web y capacitación tecnológica al servicio de la comunidad.</div>
           </div>
         </div>
-        <div class="arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14"></path>
-            <path d="m13 6 6 6-6 6"></path>
-          </svg>
-        </div>
+        <div class="arrow">→</div>
       </a>
 
       <a class="link-card" href="https://monteraiz.com" target="_blank">
         <div class="left">
-          <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="8"></circle>
-              <path d="M12 6v12"></path>
-              <path d="M9 9c1 1 2 1.5 3 1.5S14 10 15 9"></path>
-              <path d="M9 15c1-1 2-1.5 3-1.5s2 .5 3 1.5"></path>
-            </svg>
-          </div>
+          <div class="icon-box">🌱</div>
           <div class="text-group">
             <div class="title">MonteRaíz</div>
             <div class="desc">Comunidades sustentables con soporte jurídico, permacultura, tecnología y blockchain.</div>
           </div>
         </div>
-        <div class="arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14"></path>
-            <path d="m13 6 6 6-6 6"></path>
-          </svg>
-        </div>
+        <div class="arrow">→</div>
       </a>
 
       <a class="link-card" href="https://wa.me/523411701538" target="_blank">
         <div class="left">
-          <div class="icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="8"></circle>
-              <path d="M9 10.5c.4 2 2 3.6 4 4"></path>
-              <path d="M10 8.5h.01"></path>
-              <path d="M14 14.5h.01"></path>
-              <path d="M8.5 16l1.2-2"></path>
-            </svg>
-          </div>
+          <div class="icon-box">📲</div>
           <div class="text-group">
             <div class="title">Contacto directo</div>
             <div class="desc">WhatsApp para colaboraciones, contrataciones y proyectos.</div>
           </div>
         </div>
-        <div class="arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14"></path>
-            <path d="m13 6 6 6-6 6"></path>
-          </svg>
-        </div>
+        <div class="arrow">→</div>
       </a>
 
     </section>
