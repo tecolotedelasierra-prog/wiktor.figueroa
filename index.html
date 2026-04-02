@@ -1,133 +1,429 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Wiktor Figueroa</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
-      color: white;
-      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #e7df8f;
+      color: #111;
     }
 
     .container {
-      padding: 40px 20px;
-      max-width: 420px;
-      margin: auto;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 24px 22px 48px;
     }
 
-    img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 20px;
-      border: 3px solid rgba(255,255,255,0.2);
+    .hero {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .profile-img {
+      width: 320px;
+      max-width: 82vw;
+      height: auto;
+      display: block;
+      margin: 0 auto 10px;
     }
 
     h1 {
-      margin: 10px 0;
+      margin: 0;
+      font-size: 2.2rem;
+      color: #111;
+      letter-spacing: 0.3px;
     }
 
-    p {
-      opacity: 0.9;
-      margin-bottom: 25px;
+    .subtitle {
+      margin: 8px auto 0;
+      max-width: 640px;
+      font-size: 1.02rem;
+      line-height: 1.5;
+      color: rgba(17,17,17,0.78);
     }
 
-    a {
-      display: block;
-      background: white;
-      color: #333;
-      padding: 15px;
-      margin: 12px 0;
-      border-radius: 12px;
+    .links {
+      margin-top: 26px;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      background: #0a0a0d;
+      color: #fff;
       text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
+      border-radius: 28px;
+      padding: 18px 22px;
+      margin: 18px 0;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.03) inset;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
 
-    a:hover {
-      background: #25D366;
-      color: white;
+    .link-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.18);
     }
 
-    .subtext {
-      display: block;
-      font-size: 0.8rem;
-      opacity: 0.7;
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      min-width: 0;
+    }
+
+    .icon-box {
+      width: 74px;
+      height: 74px;
+      min-width: 74px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.07);
+      color: #f3f3f3;
+    }
+
+    .icon-box svg {
+      width: 34px;
+      height: 34px;
+      stroke: currentColor;
+    }
+
+    .text-group {
+      min-width: 0;
+    }
+
+    .title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: #f5f5f5;
+      margin: 0;
+      letter-spacing: 0.2px;
+    }
+
+    .desc {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.34);
       margin-top: 5px;
-      font-weight: normal;
+      line-height: 1.35;
+    }
+
+    .arrow {
+      color: rgba(255,255,255,0.28);
+      min-width: 28px;
+    }
+
+    .arrow svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 34px;
+      font-size: 0.95rem;
+      color: rgba(17,17,17,0.72);
+      letter-spacing: 0.4px;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 18px 14px 40px;
+      }
+
+      .profile-img {
+        width: 255px;
+      }
+
+      h1 {
+        font-size: 1.75rem;
+      }
+
+      .link-card {
+        border-radius: 22px;
+        padding: 16px 16px;
+      }
+
+      .icon-box {
+        width: 62px;
+        height: 62px;
+        min-width: 62px;
+        border-radius: 16px;
+      }
+
+      .icon-box svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      .title {
+        font-size: 0.98rem;
+      }
+
+      .desc {
+        font-size: 0.82rem;
+      }
     }
   </style>
 </head>
-
 <body>
+  <div class="container">
+    <section class="hero">
+      <img src="perfil-acordeon.png" alt="Wiktor Figueroa con acordeón" class="profile-img" />
+      <h1>Wiktor Figueroa</h1>
+      <p class="subtitle">
+        Arte, territorio, conciencia y tecnologías al servicio de la comunidad.
+      </p>
+    </section>
 
-<div class="container">
+    <section class="links">
 
-  <img src="https://via.placeholder.com/150">
+      <a class="link-card" href="https://kadakan.com" target="_blank">
+        <div class="left">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18V5l10-2v13"></path>
+              <circle cx="6" cy="18" r="3"></circle>
+              <circle cx="16" cy="16" r="3"></circle>
+            </svg>
+          </div>
+          <div class="text-group">
+            <div class="title">Kadakan · Música & Artes Escénicas</div>
+            <div class="desc">Acordeón, escena, performance y lenguaje artístico vivo.</div>
+          </div>
+        </div>
+        <div class="arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="m13 6 6 6-6 6"></path>
+          </svg>
+        </div>
+      </a>
 
-  <h1>Wiktor Figueroa</h1>
-  <p>Arte, territorio y conciencia ✨</p>
+      <a class="link-card" href="https://kadakan.com" target="_blank">
+        <div class="left">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3c2.5 3 4 5.3 4 8a4 4 0 1 1-8 0c0-2.7 1.5-5 4-8Z"></path>
+              <path d="M12 21v-5"></path>
+              <path d="M8.5 13.5c1 .8 2.2 1.2 3.5 1.2s2.5-.4 3.5-1.2"></path>
+            </svg>
+          </div>
+          <div class="text-group">
+            <div class="title">Yoga · Astrología · Tonalamatl</div>
+            <div class="desc">Prácticas de conciencia, sabiduría simbólica y trabajo interior.</div>
+          </div>
+        </div>
+        <div class="arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="m13 6 6 6-6 6"></path>
+          </svg>
+        </div>
+      </a>
 
-  <!-- ESCÉNICO -->
-  <a href="https://kadakan.com" target="_blank">
-    🎭 Kadakan · Música & Artes Escénicas
-  </a>
+      <a class="link-card" href="https://tecolotedelasierra.com" target="_blank">
+        <div class="left">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v15H6.5A2.5 2.5 0 0 0 4 19.5V4.5A2.5 2.5 0 0 1 6.5 2Z"></path>
+              <path d="M8 6h8"></path>
+              <path d="M8 10h8"></path>
+            </svg>
+          </div>
+          <div class="text-group">
+            <div class="title">El Tecolote · Podcast · Producción</div>
+            <div class="desc">Revista, Substack, locución y contenido audiovisual territorial.</div>
+          </div>
+        </div>
+        <div class="arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="m13 6 6 6-6 6"></path>
+          </svg>
+        </div>
+      </a>
 
-  <!-- SABERES -->
-  <a href="#">
-    🌿 Yoga · Astrología · Tonalamatl
-  </a>
+      <a class="link-card" href="https://barrancadejalpa.com" target="_blank">
+        <div class="left">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 3h8"></path>
+              <path d="M10 3v5l-4.5 7.5A4 4 0 0 0 9 21h6a4 4 0 0 0 3.5-5.5L14 8V3"></path>
+              <path d="M9 14h6"></path>
+            </svg>
+          </div>
+          <div class="text-group">
+            <div class="title">Productos orgánicos</div>
+            <div class="desc">Vino Barranca, pulque y propuestas de comida autónoma.</div>
+          </div>
+        </div>
+        <div class="arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="m13 6 6 6-6 6"></path>
+          </svg>
+        </div>
+      </a>
 
-  <!-- TECOLOTE / CONTENIDO -->
-  <a href="https://tecolotedelasierra.com" target="_blank">
-    📰 El Tecolote · Podcast · Producción
-    <span class="subtext">Revista · Substack · Locución · Contenido audiovisual</span>
-  </a>
+      <a class="link-card" href="https://instagram.com/bosquecultural" target="_blank">
+        <div class="left">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 7l9-4 9 4-9 4-9-4Z"></path>
+              <path d="M21 7v10l-9 4-9-4V7"></path>
+              <path d="M12 11v10"></path>
+            </svg>
+          </div>
+          <div class="text-group">
+            <div class="title">Yurtas móviles · Bosque Cultural</div>
+            <div class="desc">Diseño, construcción y visión nómada para habitar con ligereza.</div>
+          </div>
+        </div>
+        <div class="arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="m13 6 6 6-6 6"></path>
+          </svg>
+        </div>
+      </a>
 
-  <!-- PRODUCTOS -->
-  <a href="#">
-    🌱 Productos orgánicos
-    <span class="subtext">Vino Barranca · Pulque · Comida autónoma</span>
-  </a>
+      <a class="link-card" href="https://www.instagram.com/kasadobe/" target="_blank">
+        <div class="left">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 10h18"></path>
+              <path d="M5 21V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v13"></path>
+              <path d="M8 3v3"></path>
+              <path d="M16 3v3"></path>
+              <path d="M8 14h8"></path>
+            </svg>
+          </div>
+          <div class="text-group">
+            <div class="title">Casa Adobe · Café Cultural</div>
+            <div class="desc">Encuentro, café, arte y activación cultural desde el territorio.</div>
+          </div>
+        </div>
+        <div class="arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="m13 6 6 6-6 6"></path>
+          </svg>
+        </div>
+      </a>
 
-  <!-- YURTAS -->
-  <a href="https://instagram.com/bosquecultural" target="_blank">
-    🛖 Yurtas móviles · Bosque Cultural
-  </a>
+      <a class="link-card" href="#" target="_blank">
+        <div class="left">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v6"></path>
+              <path d="M8 5h8"></path>
+              <path d="M5 11.5A6.5 6.5 0 0 1 11.5 5h1A6.5 6.5 0 0 1 19 11.5v1A6.5 6.5 0 0 1 12.5 19h-1A6.5 6.5 0 0 1 5 12.5v-1Z"></path>
+              <path d="M9 12h6"></path>
+              <path d="M12 9v6"></path>
+            </svg>
+          </div>
+          <div class="text-group">
+            <div class="title">Tekantli · Tecnologías para el desarrollo del alma</div>
+            <div class="desc">Desarrollo de sitios web y capacitación tecnológica al servicio de la comunidad.</div>
+          </div>
+        </div>
+        <div class="arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="m13 6 6 6-6 6"></path>
+          </svg>
+        </div>
+      </a>
 
-  <!-- CASA ADOBE -->
-  <a href="https://www.instagram.com/kasadobe/" target="_blank">
-    ☕ Casa Adobe · Café Cultural
-  </a>
+      <a class="link-card" href="https://monteraiz.com" target="_blank">
+        <div class="left">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22v-7"></path>
+              <path d="M7 10c0-3 2.2-5 5-5s5 2 5 5c0 2.7-2 4.7-5 5-3-.3-5-2.3-5-5Z"></path>
+              <path d="M12 15c-1.5-1.2-3.5-3.2-3.5-6"></path>
+              <path d="M12 15c1.5-1.2 3.5-3.2 3.5-6"></path>
+              <path d="M8 22h8"></path>
+            </svg>
+          </div>
+          <div class="text-group">
+            <div class="title">MonteRaíz</div>
+            <div class="desc">Comunidades sustentables con soporte jurídico, permacultura, tecnología y blockchain.</div>
+          </div>
+        </div>
+        <div class="arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="m13 6 6 6-6 6"></path>
+          </svg>
+        </div>
+      </a>
 
-  <!-- TEKANTLI -->
-  <a href="#">
-    🧠 Tekantli · Tecnologías para el desarrollo del alma
-    <span class="subtext">Desarrollo web · Capacitación tecnológica comunitaria</span>
-  </a>
+      <a class="link-card" href="https://wa.me/523411701538" target="_blank">
+        <div class="left">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 11.5A8.5 8.5 0 0 1 7.4 19l-4.4 1 1.1-4.2A8.5 8.5 0 1 1 20 11.5Z"></path>
+              <path d="M8.8 9.8c.2-.6.5-.7.8-.7h.6c.2 0 .5 0 .7.6.2.5.8 1.8.9 1.9.1.1.1.3 0 .5-.1.2-.2.4-.4.6-.2.2-.3.4-.4.5-.2.2-.3.4-.1.7.2.4.9 1.4 1.9 2.2 1.3 1 2.3 1.3 2.7 1.5.4.1.6.1.8-.1.2-.2.8-.9 1-1.3.2-.4.5-.3.8-.2.3.1 1.8.9 2.1 1 .3.2.5.2.5.4s-.1 1-.7 1.6c-.6.6-1.4.9-2.3.9s-1.8-.3-3.1-.9c-1.2-.6-2.5-1.5-3.8-2.8-1-1-1.9-2.2-2.5-3.3-.6-1.2-.8-2.2-.8-3 0-.8.4-1.6.8-2Z"></path>
+            </svg>
+          </div>
+          <div class="text-group">
+            <div class="title">Contacto directo</div>
+            <div class="desc">WhatsApp para colaboraciones, contrataciones y proyectos.</div>
+          </div>
+        </div>
+        <div class="arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="m13 6 6 6-6 6"></path>
+          </svg>
+        </div>
+      </a>
 
-  <!-- MONTERAIZ -->
-  <a href="#">
-    🌎 MonteRaíz
-    <span class="subtext">Modelos para comunidades sustentables · Permacultura · Blockchain</span>
-  </a>
+      <a class="link-card" href="https://instagram.com/akordeonka" target="_blank">
+        <div class="left">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M17.5 6.5h.01"></path>
+            </svg>
+          </div>
+          <div class="text-group">
+            <div class="title">Instagram</div>
+            <div class="desc">@akordeonka</div>
+          </div>
+        </div>
+        <div class="arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="m13 6 6 6-6 6"></path>
+          </svg>
+        </div>
+      </a>
 
-  <!-- CONTACTO -->
-  <a href="https://wa.me/523411701538" target="_blank">
-    📲 Contacto directo
-  </a>
+    </section>
 
-  <a href="https://instagram.com/akordeonka" target="_blank">
-    📸 Instagram
-  </a>
-
-</div>
-
+    <div class="footer">
+      Wiktor Figueroa · Tapalpa, Jalisco
+    </div>
+  </div>
 </body>
 </html>
